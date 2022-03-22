@@ -21,7 +21,7 @@ export default function Bar(props) {
         tickFormat={["Total", "Recovered", "Active", "Deaths"]}
         style={{ fontSize: "1em" }}
       />
-      <VictoryAxis dependentAxis tickFormat={(x) => `${x / 10000}k`} />
+      <VictoryAxis dependentAxis tickFormat={(x) => `${x / 10000000}Cr`} />
       <VictoryBar data={data} x="quarter" y="earnings" />
     </VictoryChart>
   );
