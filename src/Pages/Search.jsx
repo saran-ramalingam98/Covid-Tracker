@@ -56,12 +56,12 @@ function Search() {
     <div>
       <Navbar></Navbar>
 
-      <div>
+      <div className="Sea">
         <br></br>
         <br></br>
 
         <Container maxWidth="sm">
-          <div className="border border-dark p-4 fs-4 rounded bg-secondary">
+          <div className="border border-dark p-4 fs-6 rounded bg-secondary">
             <div className="covidData__input">
               <form onSubmit={handleSubmit}>
                 <input onChange={handleSearch} style={{ width: "100%" }} />
