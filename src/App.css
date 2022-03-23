@@ -15,3 +15,20 @@ tr:hover {
   height: 620px;
   overflow-y: scroll;
 }
+.Glb {
+  height: 890px;
+  background-image: url(../src/worldmap1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.glbtable {
+  margin-top: 5%;
+}
+.Sea {
+  height: 890px;
+  background-image: url(../src/Map.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
