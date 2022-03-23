@@ -32,3 +32,59 @@ tr:hover {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+body {
+  background-color: white(102, 226, 102);
+}
+.covidData {
+  background-color: rgb(168, 109, 109);
+  width: 30%;
+  margin: auto;
+  margin-top: 15px;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+/* input stylings */
+
+.covidData__form {
+  padding: 10px;
+  margin: 20px;
+  font-color: rgb(255, 255, 255);
+}
+.covidData__input input {
+  width: 400px;
+  height: 50px;
+  text-align: center;
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.covidData__input button {
+  width: 80px;
+  height: 50px;
+  margin-top: 10px;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 5px 5px 5px rgb(71, 67, 67);
+  cursor: pointer;
+}
+
+/* detail stylings */
+
+.covidData__country__info {
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+  padding-left: 10px;
+  background-color: white;
+  margin-top: 20px;
+  padding: 2px;
+  text-shadow: 1px 1px 1px rgb(255, 0, 0);
+  box-shadow: 5px 5px 5px rgb(71, 67, 67);
+}
