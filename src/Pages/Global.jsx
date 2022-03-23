@@ -30,16 +30,18 @@ function Datafetch() {
   ];
 
   return (
-    <div>
+    <div className="Glb">
       <Navbar />
-      <Container className="Global">
-        <BootstrapTable
-          keyField="country"
-          data={get}
-          columns={columns}
-          pagination={paginationFactory()}
-        />
-      </Container>
+      <div className="glbtable">
+        <Container className="Global">
+          <BootstrapTable
+            keyField="country"
+            data={get}
+            columns={columns}
+            pagination={paginationFactory()}
+          />
+        </Container>
+      </div>
     </div>
   );
 }
