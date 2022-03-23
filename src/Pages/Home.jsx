@@ -1,8 +1,11 @@
 import { React, useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import axios from "axios";
-import Bar from "../Pages/Bar";
+import "../App.css";
 
+import { Bar } from "react-chartjs-2";
+import { Chart, registerables } from "chart.js";
+Chart.register(...registerables);
 export default function Home() {
   const [country, setCountry] = useState([]);
   const fetchdata = async () => {
@@ -16,7 +19,94 @@ export default function Home() {
       console.error(err);
     }
   };
+  const state = {
+    labels: country.map((emp) => emp.Country),
+    datasets: [
+      {
+        axis: "y",
+        label: "TotalCases",
+        lineTension: 0.0,
+        backgroundColor: "#4287f5",
+        borderColor: "#0004fc",
+        pointHitRadius: 20,
+        borderWidth: 3,
+        data: country.map((emp) => emp.TotalCases),
+      },
+      {
+        axis: "y",
+        label: "TotalRecovered",
+        lineTension: 0.0,
+        backgroundColor: "#8feb67",
+        borderColor: "#46e800",
+        pointHitRadius: 20,
+        borderWidth: 3,
+        data: country.map((emp) => emp.TotalRecovered),
+      },
+      {
+        axis: "y",
+        label: "ActiveCases",
+        lineTension: 5.0,
+        backgroundColor: "#ebeb63",
+        borderColor: "#e8e800",
+        pointHitRadius: 20,
+        borderWidth: 3,
+        data: country.map((emp) => emp.ActiveCases),
+      },
+      {
+        axis: "y",
+        label: "Death",
+        lineTension: 5.0,
+        backgroundColor: "#f05648",
+        borderColor: "#fc1500",
+        pointHitRadius: 20,
+        borderWidth: 3,
+        data: country.map((emp) => emp.TotalDeaths),
+      },
+    ],
+  };
 
+  const options = {
+    categoryPercentage: 0.8,
+    barPercentage: 1,
+    indexAxis: "y",
+    maintainAspectRatio: true,
+    scales: {
+      x: {
+        ticks: {
+          font: {
+            size: 8,
+          },
+          minRotation: 20,
+        },
+        beginAtZero: true,
+        grid: {
+          display: false,
+        },
+      },
+      y: {
+        ticks: {
+          font: {
+            size: 15,
+          },
+          minRotation: 20,
+        },
+        beginAtZero: true,
+        grid: {
+          display: false,
+        },
+      },
+    },
+    // title: {
+    //   display: true,
+    //   text: "Average Rainfall per month",
+    //   fontSize: 20,
+    //   color: "white",
+    // },
+    // legend: {
+    //   display: true,
+    //   position: "right",
+    // },
+  };
   useEffect(() => {
     fetchdata();
   }, []);
@@ -36,7 +126,7 @@ export default function Home() {
   }, 0);
 
   return (
-    <div>
+    <div className="main">
       <Navbar />
       <br></br>
       <div className="row container">
@@ -59,15 +149,14 @@ export default function Home() {
             <br></br>
           </div>
         </div>
-        <div className="col-md-6 col-lg-6 col-xl-6 col-sm-12">
-          <div className="h1">
-            <Bar
-              Total={Total}
-              Death={Deaths}
-              Active={Active}
-              Recover={Recover}
-            ></Bar>
-          </div>
+        <div className=" container col-md-6 col-lg-6 col-xl-6 col-sm-12 scrollmap">
+          <Bar
+            data={state}
+            options={options}
+            className="chart"
+            width={50}
+            height={1000}
+          />
         </div>
       </div>
     </div>
