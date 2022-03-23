@@ -11,3 +11,7 @@ tr:hover {
   color: white;
   font-size: 25px;
 }
+.scrollmap {
+  height: 620px;
+  overflow-y: scroll;
+}
